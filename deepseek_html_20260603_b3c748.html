@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三大茶饮品牌 | 媒体策略对比 · 喜茶 · 奈雪 · 霸王茶姬</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --heytea: #1a1a2e; --heytea-a: #f0c040;
+    --nayuki: #2d5a3d; --nayuki-a: #a8d5b5;
+    --chagee: #6b2d2d; --chagee-a: #e8b89a;
+    --bg: #f5f3ef; --ink: #1c2a3a; --muted: #6b6f78; --card: #ffffff; --border: #eae3d9;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    padding: 48px 24px;
+    display: flex;
+    justify-content: center;
+  }
+  .container {
+    max-width: 1400px;
+    width: 100%;
+    background: var(--bg);
+    border-radius: 40px;
+    padding: 32px 40px 56px;
+  }
+  /* 头部 */
+  .slide-header { position: relative; margin-bottom: 56px; }
+  .eyebrow { font-size: 12px; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; margin-bottom: 12px; }
+  h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  h1 span { color: var(--nayuki); }
+  .divider-line { width: 80px; height: 4px; background: linear-gradient(90deg, var(--heytea-a), var(--nayuki-a), var(--chagee-a)); margin-top: 20px; border-radius: 4px; }
+  .lang-switch { position: absolute; top: 0; right: 0; display: flex; gap: 8px; background: #ffffffcc; backdrop-filter: blur(4px); padding: 5px; border-radius: 48px; border: 1px solid var(--border); }
+  .lang-btn { padding: 8px 24px; border-radius: 40px; border: none; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; background: transparent; color: var(--muted); cursor: pointer; transition: 0.2s; }
+  .lang-btn.active { background: var(--ink); color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  /* Tab导航 */
+  .tab-nav { display: flex; gap: 12px; background: #ffffffcc; backdrop-filter: blur(4px); border-radius: 60px; padding: 6px; width: fit-content; margin-bottom: 48px; border: 1px solid var(--border); }
+  .tab-btn { padding: 12px 32px; border-radius: 50px; border: none; background: transparent; font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: 0.2s; }
+  .tab-btn.active { background: var(--ink); color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+  .panel { display: none; animation: fadeIn 0.4s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  /* 三列卡片 */
+  .brand-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 40px; }
+  .brand-card { background: var(--card); border-radius: 32px; overflow: hidden; transition: all 0.25s; border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+  .brand-card:hover { transform: translateY(-6px); box-shadow: 0 20px 32px -12px rgba(0,0,0,0.12); border-color: #d4cdc0; }
+  .brand-header { padding: 28px 28px 20px; display: flex; align-items: center; gap: 18px; border-bottom: 1px solid var(--border); }
+  .brand-icon { width: 60px; height: 60px; border-radius: 24px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; }
+  .heytea-icon { background: var(--heytea); color: var(--heytea-a); }
+  .nayuki-icon { background: var(--nayuki); color: var(--nayuki-a); }
+  .chagee-icon { background: var(--chagee); color: var(--chagee-a); }
+  .brand-name-block .cn { font-size: 1.5rem; font-weight: 700; color: var(--ink); letter-spacing: -0.2px; }
+  .brand-name-block .en { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
+  .brand-body { padding: 24px 28px 28px; }
+  .info-section { margin-bottom: 28px; }
+  .info-section:last-child { margin-bottom: 0; }
+  .info-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #9b8f7f; margin-bottom: 10px; }
+  .info-text { font-size: 0.85rem; line-height: 1.55; color: #2c2f36; }
+  .info-text strong { color: var(--ink); font-weight: 600; }
+  .peak-list { list-style: none; margin-top: 6px; }
+  .peak-list li { font-size: 0.8rem; margin-bottom: 8px; display: flex; justify-content: space-between; border-bottom: 1px dashed #f0e6dc; padding-bottom: 5px; }
+  .peak-name { font-weight: 500; }
+  .peak-dur { font-size: 0.7rem; color: #8a8278; }
+  .freq-bar { display: flex; align-items: center; gap: 16px; margin: 16px 0 10px; }
+  .bar-bg { flex: 1; height: 6px; background: #e9e1d6; border-radius: 6px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 6px; }
+  .heytea .bar-fill { width: 16%; background: #b97f44; }
+  .nayuki .bar-fill { width: 100%; background: #547a6b; }
+  .chagee .bar-fill { width: 28%; background: #9b6b6b; }
+  .freq-number { font-weight: 700; font-size: 1rem; min-width: 70px; text-align: right; color: #2c2c2c; }
+  .signature { margin-top: 20px; padding-top: 16px; border-top: 1px solid #ede5db; font-size: 0.7rem; font-style: italic; color: #7a7268; }
+  .insight-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 20px; }
+  .insight-card { border-radius: 28px; padding: 22px 24px; border-left: 5px solid; background: var(--card); backdrop-filter: none; box-shadow: 0 2px 8px rgba(0,0,0,0.02); border: 1px solid var(--border); }
+  .heytea-insight { border-left-color: var(--heytea-a); background: #fffdf9; }
+  .nayuki-insight { border-left-color: var(--nayuki-a); background: #fafefb; }
+  .chagee-insight { border-left-color: var(--chagee-a); background: #fffbf9; }
+  .insight-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; color: var(--ink); }
+  .insight-body { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
+  /* 排期卡片 */
+  .schedule-card { background: var(--card); border-radius: 32px; padding: 28px; border: 1px solid var(--border); height: 100%; transition: 0.2s; }
+  .schedule-card:hover { transform: translateY(-3px); box-shadow: 0 12px 24px -12px rgba(0,0,0,0.08); }
+  .sched-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+  .sched-badge { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 5px 14px; border-radius: 40px; }
+  .heytea-badge { background: var(--heytea); color: var(--heytea-a); }
+  .nayuki-badge { background: var(--nayuki); color: var(--nayuki-a); }
+  .chagee-badge { background: var(--chagee); color: var(--chagee-a); }
+  .sched-model-tag { font-size: 0.75rem; color: var(--muted); font-style: italic; }
+  .timeline-months { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; margin: 24px 0 18px; }
+  .month-cell { height: 36px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; position: relative; cursor: default; transition: 0.1s; }
+  .month-cell .month-label { position: absolute; bottom: -22px; font-size: 9px; color: var(--muted); white-space: nowrap; font-weight: 400; }
+  .int-0 { background: #eae5dd; }
+  .heytea-int-2 { background: #e0d9ce; }
+  .heytea-int-3 { background: #cec5b4; }
+  .heytea-pulse { background: var(--heytea-a); color: #2b2b4f; font-weight: 800; }
+  .nayuki-int-2 { background: #d4e2db; }
+  .nayuki-int-3 { background: #bcd2c6; }
+  .nayuki-int-4 { background: #9bbbad; }
+  .nayuki-pulse { background: var(--nayuki-a); color: #1f3e32; font-weight: 800; }
+  .chagee-int-2 { background: #ead9d0; }
+  .chagee-int-4 { background: #d7bcaf; }
+  .chagee-pulse { background: var(--chagee-a); color: #5a3636; font-weight: 800; }
+  .sched-tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 16px; }
+  .sched-tag { font-size: 0.65rem; padding: 4px 12px; border-radius: 30px; background: #f0ede8; color: #5e5b55; font-weight: 500; }
+  .legend-row { display: flex; gap: 18px; margin-top: 16px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.65rem; color: var(--muted); }
+  .legend-dot { width: 14px; height: 14px; border-radius: 4px; }
+  /* 新增面板样式 */
+  .pos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 48px; }
+  .pos-list { margin-top: 12px; font-size: 0.8rem; line-height: 1.5; color: #3c3e42; }
+  .pos-list strong { color: var(--ink); font-weight: 600; }
+  .conclusion-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin: 32px 0; }
+  .ref-box { background: #fefcf8; border-radius: 32px; padding: 28px 32px; margin-top: 32px; font-size: 0.75rem; color: #5f5b55; border: 1px solid #e2d9ce; }
+  .ref-box h4 { font-size: 1rem; font-weight: 700; margin-bottom: 20px; color: #2c3e4e; }
+  .ref-box ul { margin-left: 20px; line-height: 1.6; }
+  @media (max-width: 1200px) { .brand-grid, .pos-grid, .insight-row, .conclusion-grid { grid-template-columns: 1fr; gap: 28px; } .container { padding: 24px 28px; } h1 { font-size: 2.2rem; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="slide-header">
+    <div class="lang-switch"><button class="lang-btn active" id="btn-en">EN</button><button class="lang-btn" id="btn-zh">中文</button></div>
+    <div class="eyebrow" id="eyebrow">Competitive Media Strategy Analysis</div>
+    <h1 id="mainTitle">三大茶饮品牌 <span>媒体传播策略</span> 对比</h1>
+    <div class="divider-line"></div>
+  </div>
+  <div class="tab-nav">
+    <button class="tab-btn active" data-tab="channels" id="tabChannels">媒体渠道</button>
+    <button class="tab-btn" data-tab="formats" id="tabFormats">广告形式</button>
+    <button class="tab-btn" data-tab="schedule" id="tabSchedule">投放排期</button>
+    <button class="tab-btn" data-tab="position" id="tabPosition">品牌定位 & 结论</button>
+  </div>
+  <div class="panel active" id="panel-channels"><div class="brand-grid" id="channelsGrid"></div><div class="insight-row" id="channelsInsight"></div></div>
+  <div class="panel" id="panel-formats"><div class="brand-grid" id="formatsGrid"></div><div id="formatCompareTable" style="margin-top:32px;"></div></div>
+  <div class="panel" id="panel-schedule"><div class="brand-grid" id="scheduleGrid"></div><div class="insight-row" id="scheduleInsight"></div></div>
+  <div class="panel" id="panel-position"><div class="pos-grid" id="positionGrid"></div><div class="conclusion-grid" id="conclusionGrid"></div><div class="ref-box" id="refBox"></div></div>
+</div>
+<script>
+const content = {
+  en: {
+    eyebrow: "Competitive Media Strategy Analysis", mainTitle: "MEDIA STRATEGY <span>COMPARISON</span>",
+    tabs: ["Media Channels", "Ad Formats", "Timing & Scheduling", "Positioning & Conclusion"],
+    hChannels: `Weibo: Official voice for brand announcements and campaign launches, setting public agendas.<br>Douyin: Viral challenges & UGC amplification (e.g., DIY cup stickers) for mass reach.<br>Xiaohongshu: Lifestyle seeding via authentic KOL/KOC experiences.<br>WeChat: Deep storytelling ("Inspiration Squared") building emotional connection.<br>Offline & Packaging: Experiential media – flagship stores, pop-ups, bottle as mobile ad.`,
+    nChannels: `Douyin: Deep integration – group-buy coupons & live-streaming (+700% Labor Day sales). Closed loop: seeding → coupon → redemption → sharing.<br>Weibo: Primary co-brand amplification platform.<br>Xiaohongshu: Blends functional proof (calorie/GI data) with emotional resonance & cultural identity.<br>OOH: Airport, cinema, billboards – builds "Nayuki = healthy tea".<br>Offline Flagship: "Fiber Studio" (Shenzhen, Mar 2026) – multi-sensory immersion.`,
+    cChannels: `Weibo: Cultural co-brands – create guofeng art topics.<br>Xiaohongshu: Fashion KOLs + hashtag campaigns – aesthetic UGC & community buzz.<br>Overseas Social: Long-term cultural seeding + celebrity (Jang Wonyoung) → queue-worthy check-ins.<br>Offline Flagship: Landmark "check-in destinations".<br>Cultural Events: Fashion weeks & theatre festivals – pop-ups or runway collabs.`,
+    channelInsight: [
+      { title: "Heytea — Full-funnel narrative", body: "Weibo → Douyin → Xiaohongshu → WeChat → offline." },
+      { title: "Nayuki — Conversion-oriented matrix", body: "Douyin (sales) + Xiaohongshu (trust) + OOH + flagship." },
+      { title: "CHAGEE — Cultural circle penetration", body: "No high-frequency ads; relies on IP & landmark stores." }
+    ],
+    heyteaFormats: `<div class="info-section"><div class="info-label">Short-form Video Ads</div><div class="info-text"><strong>Placement:</strong> Douyin, Weibo, Xiaohongshu<br><strong>What & How:</strong> Low-threshold templates for UGC challenges (DataStory, 2025).<br><strong>Evidence:</strong> CHIIKAWA: 29.05M interactions (DataStory, 2025).</div></div>
+                    <div class="info-section"><div class="info-label">Display Ads</div><div class="info-text"><strong>Placement:</strong> WeChat Moments, Weibo top search, Douyin open-screen, mini‑program<br><strong>Strategy:</strong> City-tier differentiated copy for limited offers (Weibo Account Analysis, 2024).</div></div>
+                    <div class="info-section"><div class="info-label">Sponsored Content</div><div class="info-text"><strong>Placement:</strong> Xiaohongshu/Douyin seeded notes, Weibo paid posts<br><strong>What & How:</strong> Unpolished, relatable content (screenshots, hand-drawn).<br><strong>Evidence:</strong> #HEYTEASticker: 93M+ interactions, 99.3% UGC (DataStory, 2025).</div></div>
+                    <div class="info-section"><div class="info-label">In‑App / Native Ads</div><div class="info-text"><strong>Placement:</strong> Douyin keyword‑triggered search, WeChat article banners<br><strong>What & How:</strong> Captures high‑intent users (DataStory, 2025).<br><strong>Evidence:</strong> Xiaohongshu contributed 33.8% of brand conversation.</div></div>
+                    <div class="info-section"><div class="info-label">Offline as Media (OOH)</div><div class="info-text"><strong>Placement:</strong> Bottle packaging, pop-ups, store windows<br><strong>What & How:</strong> Product becomes mobile ad.<br><strong>Evidence:</strong> DIY Sticker: 1M+ submissions, 99.3% UGC (DataStory, 2025).</div></div>`,
+    nayukiFormats: `<div class="info-section"><div class="info-label">Short-form Video Ads</div><div class="info-text"><strong>Placement:</strong> Douyin, Weibo, Xiaohongshu<br><strong>Content:</strong> Product prep, health clips, real-user reviews.</div></div>
+                    <div class="info-section"><div class="info-label">Display Ads</div><div class="info-text"><strong>Placement:</strong> Douyin splash, WeChat Moments, Xiaohongshu splash.</div></div>
+                    <div class="info-section"><div class="info-label">Sponsored Content</div><div class="info-text"><strong>Placement:</strong> Xiaohongshu health/fitness KOLs, Weibo paid posts, Douyin collabs<br><strong>Strategy:</strong> Dual-route persuasion (health data central + KOL peripheral).</div></div>
+                    <div class="info-section"><div class="info-label">Native Ads</div><div class="info-text"><strong>Placement:</strong> Douyin & Xiaohongshu search results ("healthy drinks").</div></div>
+                    <div class="info-section"><div class="info-label">Co‑brand Integrated Ads</div><div class="info-text"><strong>Placement:</strong> Themed pop-ups, limited merch (Harry Potter, Scruffy Puppy)<br><strong>Effect:</strong> Turns ads into "check‑in events".</div></div>`,
+    chageeFormats: `<div class="info-section"><div class="info-label">Short-form Video Ads</div><div class="info-text"><strong>Placement:</strong> Douyin, Xiaohongshu, Weibo, TikTok</div></div>
+                    <div class="info-section"><div class="info-label">Display Ads</div><div class="info-text"><strong>Placement:</strong> Weibo/Xiaohongshu splash, Douyin open-screen, offline store banners</div></div>
+                    <div class="info-section"><div class="info-label">Sponsored Content</div><div class="info-text"><strong>Placement:</strong> Xiaohongshu fashion/art/travel KOLs, Douyin/TikTok/Instagram influencer posts</div></div>
+                    <div class="info-section"><div class="info-label">Native Ads</div><div class="info-text"><strong>Placement:</strong> Douyin/Xiaohongshu search results (keyword‑triggered)</div></div>
+                    <div class="info-section"><div class="info-label">Offline as Media</div><div class="info-text"><strong>Placement:</strong> Packaging, pop‑up signage, flagship windows, cultural venue banners, LED screens</div></div>`,
+    formatCompareTable: `<div style="display:grid;grid-template-columns:140px 1fr 1fr 1fr;gap:1px;background:#e5dfd3;border-radius:28px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.02);">
+      <div style="background:#1c2a3a;color:white;padding:16px;font-weight:700;">Ad Format</div>
+      <div style="background:#1c2a3a;color:#f0c040;padding:16px;text-align:center;">Heytea</div>
+      <div style="background:#1c2a3a;color:#a8d5b5;padding:16px;text-align:center;">Nayuki</div>
+      <div style="background:#1c2a3a;color:#e8b89a;padding:16px;text-align:center;">CHAGEE</div>
+      <div style="background:#fff;padding:14px;">Short Video</div><div style="background:#fff;text-align:center;">UGC-driven</div><div style="background:#fff;text-align:center;">Conversion-oriented</div><div style="background:#fff;text-align:center;">Aesthetic core</div>
+      <div style="background:#fff;padding:14px;">OOH / Outdoor</div><div style="background:#fff;text-align:center;">Packaging as medium</div><div style="background:#fff;text-align:center;">Urban exposure</div><div style="background:#fff;text-align:center;">Supplementary</div>
+      <div style="background:#fff;padding:14px;">Co-brand Integration</div><div style="background:#fff;text-align:center;">Selective limited</div><div style="background:#fff;text-align:center;">Full-link creative</div><div style="background:#fff;text-align:center;">Deep cultural</div>
+      <div style="background:#fff;padding:14px;">KOL Collaboration</div><div style="background:#fff;text-align:center;">Lifestyle</div><div style="background:#fff;text-align:center;">Health/food</div><div style="background:#fff;text-align:center;">Fashion/art</div>
+    </div>`,
+    heyteaSched: { model: "Continuous + Pulsing", desc: "Year-round product updates (20+ tea bases in 2025) + daily social. Major pulses: Spring Festival (2w), Spring新品 (3-4w), Early snow (~1w), CHIIKAWA (Aug, 2-3w), POP MART (Dec, 2-3w). Peak duration: 1-3 weeks. Co-brand freq: 2/year (down from monthly).", signature: "Scarcity driven — each co-brand a media event", tags: ["2 co-brands/year", "Scarcity strategy", "Continuous base", "Topic bursts"] },
+    nayukiSched: { model: "Campaign-based + Anchor-driven", desc: "8+ years health narrative (0-calorie sugar → Fiber Studio). Annual anchor: Douyin Anniversary (Nov-Dec) – ¥38.24M sales. Major pulses: Douyin Anniversary (2-3w), Labour Day (+700%), Spring Festival/National Day, co-brands (~12/year). Peak duration: 1-2 weeks (anniversary 2-3w).", signature: "Compounding asset — anniversary ROI accumulates", tags: ["~12 co-brands/year", "Douyin anchor", "Holiday pulses", "Health narrative"] },
+    chageeSched: { model: "Campaign-based (events + export)", desc: "No sustained ads; long idle intervals. Major pulses: Shanghai Fashion Week (Mar–Apr+Oct), Wuzhen Theatre Festival (Oct–Nov), Int'l Tea Day (1w), Nezha 2 movie window (~3 months), Korea launch burst. Peak duration: 1-2 weeks (film ~3 months).", signature: "Leverage — free-rides on cultural events", tags: ["Cultural triggers", "Export milestones", "Long idle", "Selective deep"] },
+    scheduleInsight: [
+      { title: "Heytea — Scarcity as value", body: "Only 2 co-brands/year makes each a media event." },
+      { title: "Nayuki — High-frequency locking", body: "~12 co-brands/year + continuous health narrative." },
+      { title: "CHAGEE — Silence amplifies impact", body: "Long idle intervals make each appearance newsworthy." }
+    ],
+    brandPositions: [
+      { brand: "HEYTEA · 喜茶", icon: "H", color: "heytea", positioning: "Inspiration-driven — turning daily rituals into playful self-expression.", audience: "Young, trend-savvy urban consumers valuing self-expression, creative co-creation, and aesthetic authenticity (DataStory, 2026; SocialBeta, 2026).", philosophy: "Authentic tea, milk, fruit, sugar.", diff: "Extreme differentiation: tea specialties, Tibetan tea.", coCreate: "User co-creation via 'HEYTEA Stickers' (HEYTEA, 2025; Economic Daily, 2026)." },
+      { brand: "NAYUKI · 奈雪的茶", icon: "N", color: "nayuki", positioning: "From 'tea+soft bread' to healthy tea leader — low GI, high fiber.", audience: "Health-conscious urban consumers seeking verifiable nutrition (XFRB.com, 2026).", philosophy: "Natural, low-GI, high-fiber ingredients.", diff: "Functional health leadership: GI certification, dietary fiber, zero-calorie sweeteners.", coCreate: "IP co-brand integration (Harry Potter, Scruffy Puppy) turning ads into check-in events." },
+      { brand: "CHAGEE · 霸王茶姬", icon: "C", color: "chagee", positioning: "Oriental tea — guofeng meets contemporary fashion.", audience: "Young, fashion-forward consumers with Chinese cultural pride.", philosophy: "Quality over quantity; refuses price wars.", diff: "Cultural branding & aesthetic exclusivity — 'the Chanel of tea'.", coCreate: "Deep cultural partnerships (Nezha 2, Thyssen Museum, Hello Kitty pop-ups)." }
+    ],
+    trends: [{ title:"Co-brand fatigue", text:"All reduced frequency (Heytea monthly→2/y; Nayuki 23→12; Chagee selective). 23.85% indifferent (Wang, 2026)." },{ title:"Shift to owned channels", text:"Heytea DIY sticker exclusive to mini-program; reducing platform dependency." },{ title:"Functional→symbolic consumption", text:"Homogeneous recipes shift from taste to meaning." },{ title:"Internationalization as driver", text:"Overseas expansion becomes media planning engine." }],
+    theories: [{ title:"IMC", text:"Consistent core messages across channels, adapting to platform strengths." },{ title:"ELM", text:"Heytea/Chagee peripheral route; Nayuki dual-route." },{ title:"Agenda-setting", text:"Chagee embeds in events; Heytea uses Weibo; Nayuki uses OOH for priming." },{ title:"Scarcity Principle", text:"Heytea's co-brand contraction increases perceived value." }],
+    effectiveness: [{ brand:"HEYTEA", text:"High engagement (1M+ DIY, 200M+ Douyin views). Scarcity makes co-brands events. Limitation: conversion less direct." },{ brand:"NAYUKI", text:"Strong short-term conversion (+700% Labor Day). Anniversary asset (¥38.24M). Limitation: net loss suggests over-reliance on promos." },{ brand:"CHAGEE", text:"Successful Korea entry. Cultural embedding builds aspiration. Limitation: strategic slowdown (300 stores in 2026) indicates hype vs ops gap." }],
+    references: ["DataStory. (2026). 茶饮行业: 喜茶品牌社媒表现深度解析报告.","NewMediaLab. (2025). 从喝茶到玩杯：喜茶「DIY喜贴」案例精选.","Ouyang, R. (2025). 喜茶的“杯贴大战”被“灵魂画手”玩坏了！.","什么值得买. (2026). 喜茶“事业”瓶营销活动，3天曝光破亿.","SocialBeta. (2026). 喜茶 2025 年度小事.","STCN. (2026). 奈雪五一销量环比增长超700%.","Wang, Z. W. (2026). 被“外卖大战”和低价包围的他们.","XFRB.com. (2026). 奈雪的茶健康战略.","Yibang Power. (2026). 霸王茶姬韩国首店引爆海外市场.","抖音心动大牌日. (2026). 灵感续杯！喜茶年度盛典.","喜茶微博账号分析. (2025). 喜茶微博账号分析."]
+  },
+  zh: {
+    eyebrow: "竞品媒体策略分析", mainTitle: "三大茶饮品牌 <span>媒体传播策略</span> 对比",
+    tabs: ["媒体渠道", "广告形式", "投放排期", "品牌定位 & 结论"],
+    hChannels: `微博：品牌公告与活动发布的官方声音，设置公共议程。<br>抖音：病毒式UGC挑战（DIY杯贴）实现广泛传播。<br>小红书：KOL/KOC真实体验驱动生活方式种草。<br>微信公众号：“灵感二次方”深度叙事与会员忠诚。<br>线下与包装：旗舰店、快闪、瓶身包装即移动广告。`,
+    nChannels: `抖音：团购券+直播驱动销售，五一+700%。闭环：种草→领券→核销→分享。<br>微博：联名活动主要放大平台。<br>小红书：功能性证明（热量/GI数据）融合情感共鸣与文化认同。<br>户外广告：机场、影院、商圈大屏建立“奈雪=健康茶饮”。<br>线下旗舰店：“纤·Studio”（深圳海岸城，2026.3）多感官沉浸。`,
+    cChannels: `微博：文化联名期间创造国风艺术话题。<br>小红书：时尚KOL+话题活动，驱动审美UGC与社群热度。<br>海外社媒：长期文化种草+明星自发（张元英）→排队打卡。<br>线下旗舰店：地标“打卡目的地”。<br>文化活动嵌入：时装周/戏剧节，快闪店或秀场合作。`,
+    channelInsight: [
+      { title: "喜茶 — 全渠道叙事体系", body: "微博→抖音→小红书→微信→线下。" },
+      { title: "奈雪 — 转化导向矩阵", body: "抖音（销售）+小红书（信任）+户外+旗舰店。" },
+      { title: "霸王茶姬 — 文化圈层渗透", body: "不依赖高频投放，依靠IP和地标门店。" }
+    ],
+    heyteaFormats: `<div class="info-section"><div class="info-label">短视频广告</div><div class="info-text"><strong>投放位置：</strong>抖音、微博、小红书<br><strong>策略：</strong>低门槛模板鼓励UGC挑战（DataStory, 2025）。<br><strong>证据：</strong>CHIIKAWA联名：2905万互动（DataStory, 2025）。</div></div>
+                    <div class="info-section"><div class="info-label">展示广告</div><div class="info-text"><strong>投放位置：</strong>微信朋友圈、微博搜索顶、抖音开屏、小程序首页<br><strong>策略：</strong>城市差异化文案突出限时优惠（喜茶微博账号分析, 2024）。</div></div>
+                    <div class="info-section"><div class="info-label">赞助内容</div><div class="info-text"><strong>投放位置：</strong>小红书/抖音种草笔记、微博付费帖子<br><strong>策略：</strong>不修边幅的真实内容（截图、手绘）。<br><strong>证据：</strong>#喜茶DIY贴纸：9300万+互动，99.3% UGC（DataStory, 2025）。</div></div>
+                    <div class="info-section"><div class="info-label">应用内/原生广告</div><div class="info-text"><strong>投放位置：</strong>抖音关键词搜索结果、微信文章嵌入式横幅<br><strong>策略：</strong>捕捉高意向用户（DataStory, 2025）。<br><strong>证据：</strong>小红书贡献33.8%品牌声量。</div></div>
+                    <div class="info-section"><div class="info-label">线下即媒体（户外）</div><div class="info-text"><strong>投放位置：</strong>瓶身包装、快闪店、旗舰店橱窗<br><strong>策略：</strong>产品成为移动广告。<br><strong>证据：</strong>DIY喜贴：100万+提交，99.3% UGC（DataStory, 2025）。</div></div>`,
+    nayukiFormats: `<div class="info-section"><div class="info-label">短视频广告</div><div class="info-text"><strong>投放位置：</strong>抖音、微博、小红书<br><strong>内容：</strong>产品制作、健康科普、真实测评。</div></div>
+                    <div class="info-section"><div class="info-label">展示广告</div><div class="info-text"><strong>投放位置：</strong>抖音开屏、微信朋友圈、小红书开屏。</div></div>
+                    <div class="info-section"><div class="info-label">赞助内容</div><div class="info-text"><strong>投放位置：</strong>小红书健康/健身KOL、微博付费、抖音合作<br><strong>策略：</strong>双路径说服（健康数据中心路径+KOL边缘路径）。</div></div>
+                    <div class="info-section"><div class="info-label">原生广告</div><div class="info-text"><strong>投放位置：</strong>抖音&小红书搜索结果（“健康饮品”）。</div></div>
+                    <div class="info-section"><div class="info-label">联名整合广告</div><div class="info-text"><strong>投放位置：</strong>主题快闪、限定周边（哈利波特、潦草小狗）<br><strong>效果：</strong>将广告转化为“打卡事件”。</div></div>`,
+    chageeFormats: `<div class="info-section"><div class="info-label">短视频广告</div><div class="info-text"><strong>投放位置：</strong>抖音、小红书、微博、TikTok</div></div>
+                    <div class="info-section"><div class="info-label">展示广告</div><div class="info-text"><strong>投放位置：</strong>微博/小红书开屏、抖音开屏、门店外立面横幅</div></div>
+                    <div class="info-section"><div class="info-label">赞助内容</div><div class="info-text"><strong>投放位置：</strong>小红书时尚/艺术/旅行KOL、抖音/TikTok/Instagram达人</div></div>
+                    <div class="info-section"><div class="info-label">原生广告</div><div class="info-text"><strong>投放位置：</strong>抖音&小红书搜索结果（关键词触发）</div></div>
+                    <div class="info-section"><div class="info-label">线下即媒体</div><div class="info-text"><strong>投放位置：</strong>包装、快闪店招牌、旗舰店橱窗、文化场馆横幅、商圈LED屏</div></div>`,
+    formatCompareTable: `<div style="display:grid;grid-template-columns:140px 1fr 1fr 1fr;gap:1px;background:#e5dfd3;border-radius:28px;overflow:hidden;">
+      <div style="background:#1c2a3a;color:white;padding:16px;font-weight:700;">广告形式</div>
+      <div style="background:#1c2a3a;color:#f0c040;padding:16px;text-align:center;">喜茶</div>
+      <div style="background:#1c2a3a;color:#a8d5b5;padding:16px;text-align:center;">奈雪</div>
+      <div style="background:#1c2a3a;color:#e8b89a;padding:16px;text-align:center;">霸王茶姬</div>
+      <div style="background:#fff;padding:14px;">短视频</div><div style="background:#fff;text-align:center;">UGC驱动</div><div style="background:#fff;text-align:center;">转化导向</div><div style="background:#fff;text-align:center;">美学主力</div>
+      <div style="background:#fff;padding:14px;">OOH / 户外</div><div style="background:#fff;text-align:center;">包装即媒介</div><div style="background:#fff;text-align:center;">城市曝光</div><div style="background:#fff;text-align:center;">辅助补位</div>
+      <div style="background:#fff;padding:14px;">联名整合</div><div style="background:#fff;text-align:center;">精选限定</div><div style="background:#fff;text-align:center;">全链路创意</div><div style="background:#fff;text-align:center;">深度文化</div>
+      <div style="background:#fff;padding:14px;">KOL合作</div><div style="background:#fff;text-align:center;">生活方式</div><div style="background:#fff;text-align:center;">健康/美食</div><div style="background:#fff;text-align:center;">时尚/艺术</div>
+    </div>`,
+    heyteaSched: { model: "持续 + 脉冲", desc: "全年产品更新（2025年20+茶底）+日常社媒。主要脉冲：春节（2周）、春季上新（3-4周）、初雪（约1周）、CHIIKAWA（8月，2-3周）、POP MART（12月，2-3周）。峰值时长1-3周。联名频率：2次/年（从月度的稀缺收缩）。", signature: "稀缺性驱动——每次联名成为媒体事件", tags: ["2次联名/年", "稀缺策略", "持续基础", "话题爆发"] },
+    nayukiSched: { model: "战役型 + 锚点驱动", desc: "8+年健康叙事（0卡糖→纤·Studio）。年度锚点：抖音周年庆（11-12月）→3824万元销售。主要脉冲：抖音周年庆（2-3周）、劳动节（+700%）、春节/国庆、联名（约12次/年）。峰值时长1-2周（周年庆2-3周）。", signature: "复利资产——周年庆ROI逐年积累", tags: ["约12次联名/年", "抖音锚点", "节假日脉冲", "健康叙事"] },
+    chageeSched: { model: "战役型（文化事件+出海）", desc: "无持续广告；长蛰伏期。主要脉冲：上海时装周（3-4月+10月）、乌镇戏剧节（10-11月）、国际茶日（1周）、哪吒2电影窗口（约3个月）、韩国开业爆发。峰值时长1-2周（电影窗口约3个月）。", signature: "杠杆效应——免费借势文化事件", tags: ["文化事件触发", "出海节点", "长蛰伏期", "选择性深度"] },
+    scheduleInsight: [
+      { title: "喜茶 — 稀缺即价值", body: "每年仅2次联名，每次成为行业事件。" },
+      { title: "奈雪 — 高频锁定心智", body: "约12次联名/年 + 持续健康叙事。" },
+      { title: "霸王茶姬 — 沉默放大器", body: "长蛰伏期使每次露出具有新闻性。" }
+    ],
+    brandPositions: [
+      { brand: "HEYTEA · 喜茶", icon: "H", color: "heytea", positioning: "灵感驱动——将日常饮茶转化为趣味自我表达。", audience: "年轻、潮流城市消费者，重视自我表达、创意共创与审美真实感（DataStory, 2026; SocialBeta, 2026）。", philosophy: "真茶、真奶、真果、真糖。", diff: "极致差异化：开发茶特调、藏茶等新品类。", coCreate: "通过「喜贴」让消费者成为主动创作者（HEYTEA, 2025; Economic Daily, 2026）。" },
+      { brand: "NAYUKI · 奈雪的茶", icon: "N", color: "nayuki", positioning: "从「茶饮+软欧包」升级为健康茶饮领导者—低GI高纤维。", audience: "注重健康的都市消费者（上班族、健身人群），追求可验证营养（XFRB.com, 2026）。", philosophy: "天然、低GI、高纤维原料。", diff: "功能性健康领导力：低GI认证、膳食纤维、零卡糖。", coCreate: "IP联名整合创意（哈利波特、潦草小狗）转化为打卡事件。" },
+      { brand: "CHAGEE · 霸王茶姬", icon: "C", color: "chagee", positioning: "东方新茶饮——国风美学与当代时尚融合。", audience: "具有中国文化自豪感的年轻时尚消费者。", philosophy: "重质不重量；拒绝价格战。", diff: "文化品牌与审美排他性——「茶中香奈儿」。", coCreate: "深度文化合作（哪吒2、提森博物馆、Hello Kitty快闪）。" }
+    ],
+    trends: [{ title:"联名疲劳", text:"三大品牌均降低频率（喜茶每月→2/年；奈雪23→12；霸王茶姬选择性）。23.85%消费者无感（王紫薇, 2026）。" },{ title:"转向自有渠道", text:"喜茶DIY杯贴独占小程序；减少平台依赖。" },{ title:"从功能到符号消费", text:"配方同质化使竞争从口味转向意义。" },{ title:"国际化成为排期驱动", text:"海外扩张成为媒体计划新引擎。" }],
+    theories: [{ title:"整合营销传播 (IMC)", text:"各渠道保持一致核心信息，适应平台特性。" },{ title:"精细化加工可能性模型 (ELM)", text:"喜茶/霸王茶姬边缘路径；奈雪双路径。" },{ title:"议程设置", text:"霸王茶姬嵌入事件；喜茶用微博；奈雪用户外预植品类。" },{ title:"稀缺原则", text:"喜茶联名收缩提升感知价值。" }],
+    effectiveness: [{ brand:"喜茶", text:"高参与（100万+DIY，2亿+抖音播放）。稀缺使联名成事件。局限：转化不如优惠券直接。" },{ brand:"奈雪", text:"强短期转化（五一+700%）。周年庆资产（3824万）。局限：净亏损表明过度依赖促销。" },{ brand:"霸王茶姬", text:"成功进入韩国市场。文化嵌入打造向往感。局限：战略放缓（300家新店/2026）显示热度与运营差距。" }],
+    references: ["DataStory. (2026). 茶饮行业: 喜茶品牌社媒表现深度解析报告.","NewMediaLab. (2025). 从喝茶到玩杯：喜茶「DIY喜贴」案例精选.","欧阳睿. (2025). 喜茶的“杯贴大战”被“灵魂画手”玩坏了！.","什么值得买. (2026). 喜茶“事业”瓶营销活动，3天曝光破亿.","SocialBeta. (2026). 喜茶 2025 年度小事.","证券时报网. (2026). 奈雪五一销量环比增长超700%.","王紫薇. (2026). 被“外卖大战”和低价包围的他们.","消费日报网. (2026). 奈雪的茶健康战略.","亿邦动力. (2026). 霸王茶姬韩国首店引爆海外市场.","抖音心动大牌日. (2026). 灵感续杯！喜茶年度盛典.","喜茶微博账号分析. (2025). 喜茶微博账号分析."]
+  }
+};
+function renderChannels(lang) {
+  const d = content[lang];
+  document.getElementById('channelsGrid').innerHTML = `
+    <div class="brand-card heytea"><div class="brand-header"><div class="brand-icon heytea-icon">H</div><div class="brand-name-block"><div class="cn">喜茶</div><div class="en">Heytea</div></div></div><div class="brand-body"><div class="info-text">${d.hChannels}</div></div></div>
+    <div class="brand-card nayuki"><div class="brand-header"><div class="brand-icon nayuki-icon">N</div><div class="brand-name-block"><div class="cn">奈雪的茶</div><div class="en">Nayuki</div></div></div><div class="brand-body"><div class="info-text">${d.nChannels}</div></div></div>
+    <div class="brand-card chagee"><div class="brand-header"><div class="brand-icon chagee-icon">C</div><div class="brand-name-block"><div class="cn">霸王茶姬</div><div class="en">CHAGEE</div></div></div><div class="brand-body"><div class="info-text">${d.cChannels}</div></div></div>
+  `;
+  document.getElementById('channelsInsight').innerHTML = d.channelInsight.map((ins,i)=>`<div class="insight-card ${i===0?'heytea-insight':i===1?'nayuki-insight':'chagee-insight'}"><div class="insight-title">${ins.title}</div><div class="insight-body">${ins.body}</div></div>`).join('');
+}
+function renderFormats(lang) {
+  const d = content[lang];
+  document.getElementById('formatsGrid').innerHTML = `
+    <div class="brand-card heytea"><div class="brand-header"><div class="brand-icon heytea-icon">H</div><div class="brand-name-block"><div class="cn">喜茶</div><div class="en">Heytea</div></div></div><div class="brand-body">${d.heyteaFormats}</div></div>
+    <div class="brand-card nayuki"><div class="brand-header"><div class="brand-icon nayuki-icon">N</div><div class="brand-name-block"><div class="cn">奈雪的茶</div><div class="en">Nayuki</div></div></div><div class="brand-body">${d.nayukiFormats}</div></div>
+    <div class="brand-card chagee"><div class="brand-header"><div class="brand-icon chagee-icon">C</div><div class="brand-name-block"><div class="cn">霸王茶姬</div><div class="en">CHAGEE</div></div></div><div class="brand-body">${d.chageeFormats}</div></div>
+  `;
+  document.getElementById('formatCompareTable').innerHTML = d.formatCompareTable;
+}
+function renderSchedule(lang) {
+  const d = content[lang];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function tl(brand) {
+    let html = '<div class="timeline-months">';
+    for(let i=0;i<12;i++){
+      if(brand==='heytea'){
+        let cls = 'heytea-int-2';
+        if(i===2||i===8) cls='heytea-pulse';
+        else if(i===3||i===7||i===11) cls='heytea-int-3';
+        html += `<div class="month-cell ${cls}">${i+1}<span class="month-label">${months[i]}</span></div>`;
+      } else if(brand==='nayuki'){
+        let cls = 'nayuki-int-2';
+        if(i===1||i===3||i===4||i===6||i===8||i===10||i===11) cls='nayuki-pulse';
+        if(i===2||i===7) cls='nayuki-int-3';
+        if(i===5) cls='nayuki-int-4';
+        html += `<div class="month-cell ${cls}">${i+1}<span class="month-label">${months[i]}</span></div>`;
+      } else {
+        let cls = 'int-0';
+        if(i===2||i===8) cls='chagee-pulse';
+        if(i===5||i===11) cls='chagee-int-4';
+        html += `<div class="month-cell ${cls}">${i+1}<span class="month-label">${months[i]}</span></div>`;
+      }
+    }
+    return html+'</div>';
+  }
+  document.getElementById('scheduleGrid').innerHTML = `
+    <div class="schedule-card heytea"><div class="sched-header"><div class="sched-badge heytea-badge">HEYTEA</div><span class="sched-model-tag">${d.heyteaSched.model}</span></div><div class="info-text">${d.heyteaSched.desc}</div>${tl('heytea')}<div class="sched-tags">${d.heyteaSched.tags.map(t=>`<span class="sched-tag">${t}</span>`).join('')}</div><div class="signature">${d.heyteaSched.signature}</div></div>
+    <div class="schedule-card nayuki"><div class="sched-header"><div class="sched-badge nayuki-badge">NAYUKI</div><span class="sched-model-tag">${d.nayukiSched.model}</span></div><div class="info-text">${d.nayukiSched.desc}</div>${tl('nayuki')}<div class="sched-tags">${d.nayukiSched.tags.map(t=>`<span class="sched-tag">${t}</span>`).join('')}</div><div class="signature">${d.nayukiSched.signature}</div></div>
+    <div class="schedule-card chagee"><div class="sched-header"><div class="sched-badge chagee-badge">CHAGEE</div><span class="sched-model-tag">${d.chageeSched.model}</span></div><div class="info-text">${d.chageeSched.desc}</div>${tl('chagee')}<div class="sched-tags">${d.chageeSched.tags.map(t=>`<span class="sched-tag">${t}</span>`).join('')}</div><div class="signature">${d.chageeSched.signature}</div></div>
+  `;
+  document.getElementById('scheduleInsight').innerHTML = d.scheduleInsight.map((ins,i)=>`<div class="insight-card ${i===0?'heytea-insight':i===1?'nayuki-insight':'chagee-insight'}"><div class="insight-title">${ins.title}</div><div class="insight-body">${ins.body}</div></div>`).join('');
+}
+function renderPosition(lang) {
+  const d = content[lang];
+  document.getElementById('positionGrid').innerHTML = d.brandPositions.map(p=>`
+    <div class="brand-card ${p.color}"><div class="brand-header"><div class="brand-icon ${p.color}-icon">${p.icon}</div><div class="brand-name-block"><div class="cn">${p.brand}</div><div class="en">${p.brand}</div></div></div><div class="brand-body">
+      <div class="pos-list"><strong>🎯 Positioning:</strong> ${p.positioning}</div>
+      <div class="pos-list"><strong>👥 Audience:</strong> ${p.audience}</div>
+      <div class="pos-list"><strong>📜 Philosophy:</strong> ${p.philosophy}</div>
+      <div class="pos-list"><strong>⚡ Differentiation:</strong> ${p.diff}</div>
+      <div class="pos-list"><strong>🤝 Co-creation:</strong> ${p.coCreate}</div>
+    </div></div>
+  `).join('');
+  document.getElementById('conclusionGrid').innerHTML = `
+    <div><div class="info-label">Industry Trends</div><div class="insight-row" style="grid-template-columns:1fr;">${d.trends.map(t=>`<div class="insight-card"><div class="insight-title">📊 ${t.title}</div><div class="insight-body">${t.text}</div></div>`).join('')}</div></div>
+    <div><div class="info-label">Theoretical Insights</div><div class="insight-row" style="grid-template-columns:1fr;">${d.theories.map(t=>`<div class="insight-card"><div class="insight-title">📘 ${t.title}</div><div class="insight-body">${t.text}</div></div>`).join('')}</div></div>
+    <div><div class="info-label">Effectiveness Discussion</div><div class="insight-row" style="grid-template-columns:1fr;">${d.effectiveness.map((e,i)=>`<div class="insight-card ${i===0?'heytea-insight':i===1?'nayuki-insight':'chagee-insight'}"><div class="insight-title">✅ ${e.brand}</div><div class="insight-body">${e.text}</div></div>`).join('')}</div></div>
+  `;
+  document.getElementById('refBox').innerHTML = `<h4>📚 References (APA 7th)</h4><ul style="margin-left:20px;line-height:1.6;">${d.references.map(r=>`<li style="margin-bottom:8px;">${r}</li>`).join('')}</ul>`;
+}
+function setLanguage(lang) {
+  const d = content[lang];
+  document.getElementById('eyebrow').innerText = d.eyebrow;
+  document.getElementById('mainTitle').innerHTML = d.mainTitle;
+  ['tabChannels','tabFormats','tabSchedule','tabPosition'].forEach((id,i)=>document.getElementById(id).innerText = d.tabs[i]);
+  renderChannels(lang); renderFormats(lang); renderSchedule(lang); renderPosition(lang);
+}
+setLanguage('en');
+document.getElementById('btn-en').addEventListener('click',()=>{setLanguage('en'); document.getElementById('btn-en').classList.add('active'); document.getElementById('btn-zh').classList.remove('active');});
+document.getElementById('btn-zh').addEventListener('click',()=>{setLanguage('zh'); document.getElementById('btn-zh').classList.add('active'); document.getElementById('btn-en').classList.remove('active');});
+document.querySelectorAll('.tab-btn').forEach(btn=>btn.addEventListener('click',()=>{
+  const id=btn.getAttribute('data-tab');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById(`panel-${id}`).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}));
+</script>
+</body>
+</html>
